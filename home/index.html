@@ -10,8 +10,132 @@
   <meta name="keywords" content="ホテルいずみ,ホテル,鎌倉,格安,駅近,旅館,宿,いずみホテル,izumi,hotel">
   <meta name="description" content="ホテルいずみの公式サイトです。">
 <title>ホテルいずみ</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
 
+    /* ヘッダー全体のスタイル */
+    header {
+        display: flex;
+        align-items: center;
+        background-color: #00AAFF;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 20px;
+    }
 
+    /* 左の画像部分 */
+    .logo {
+        margin-right: 20px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    /* 二重線 */
+    .divider {
+        border-left: 2px double #ffffff;
+        height: 40px;
+        margin: 0 20px;
+    }
+
+    /* ナビゲーションメニュー */
+    nav {
+        display: flex;
+        gap: 20px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    nav a:hover {
+        color: #FFFFFF;
+    }
+
+    nav a::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #FFFFFF;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    /* デバイス対応のメディアクエリ */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            display: none;
+        }
+
+        nav {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            padding: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav a {
+            font-size: 12px;
+        }
+    }
+</style>
 
 </head>
+<body>
+    <header>
+        <!-- 左のロゴ画像 -->
+        <a href="index.html" class="logo">
+            <img src="https://symphony100.github.io/hotelizumi/png/Hotel%20Izumi.png" alt="Hotel Izumi">
+        </a>
+
+        <!-- 二重線 -->
+        <div class="divider"></div>
+
+        <!-- ナビゲーションメニュー -->
+        <nav>
+            <a href="#reservations">予約・料金</a>
+            <a href="#map">マップ</a>
+            <a href="#sightseeing">観光名所</a>
+            <a href="#parking">駐車場</a>
+            <a href="#qa">Q＆A</a>
+        </nav>
+    </header>
+</body>
 </html>
