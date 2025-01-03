@@ -10,6 +10,48 @@
     <meta name="description" content="ホテルいずみの公式サイトです。">
     <title>ホテルいずみ</title>
 <style>
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-track img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    
     body {
         margin: 0;
         padding: 0;
@@ -136,5 +178,51 @@
             <a href="#qa">Q＆A</a>
         </nav>
     </header>
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像1">
+            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像2">
+            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像3">
+            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像4">
+            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像5">
+            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像6">
+        </div>
+        <button class="carousel-button prev">&lt;</button>
+        <button class="carousel-button next">&gt;</button>
+    </div>
+
+    <script>
+        // カルーセルの設定
+        const track = document.querySelector('.carousel-track');
+        const images = document.querySelectorAll('.carousel-track img');
+        const imageCount = images.length;
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        let currentIndex = 0;
+
+        // カルーセルを更新する関数
+        function updateCarousel() {
+            const translateX = -currentIndex * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // 次へボタン
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % imageCount;
+            updateCarousel();
+        });
+
+        // 前へボタン
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + imageCount) % imageCount;
+            updateCarousel();
+        });
+
+        // 自動スクロール
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % imageCount;
+            updateCarousel();
+        }, 5000);
+    </script>
 </body>
 </html>
