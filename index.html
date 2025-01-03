@@ -178,51 +178,5 @@
             <a href="#qa">Q＆A</a>
         </nav>
     </header>
-    <div class="carousel-container">
-        <div class="carousel-track">
-            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像1">
-            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像2">
-            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像3">
-            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像4">
-            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像5">
-            <img src="https://symphony100.github.io/upload/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF.png" alt="画像6">
-        </div>
-        <button class="carousel-button prev">&lt;</button>
-        <button class="carousel-button next">&gt;</button>
-    </div>
-
-    <script>
-        // カルーセルの設定
-        const track = document.querySelector('.carousel-track');
-        const images = document.querySelectorAll('.carousel-track img');
-        const imageCount = images.length;
-        const prevButton = document.querySelector('.carousel-button.prev');
-        const nextButton = document.querySelector('.carousel-button.next');
-        let currentIndex = 0;
-
-        // カルーセルを更新する関数
-        function updateCarousel() {
-            const translateX = -currentIndex * 100;
-            track.style.transform = `translateX(${translateX}%)`;
-        }
-
-        // 次へボタン
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % imageCount;
-            updateCarousel();
-        });
-
-        // 前へボタン
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + imageCount) % imageCount;
-            updateCarousel();
-        });
-
-        // 自動スクロール
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % imageCount;
-            updateCarousel();
-        }, 5000);
-    </script>
 </body>
 </html>
