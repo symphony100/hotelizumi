@@ -2,9 +2,9 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="ホテルいずみ,ホテル,鎌倉,格安,駅近,旅館,宿,いずみホテル,izumi,hotel">
     <meta name="description" content="ホテルいずみの公式サイトです。">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ホテルいずみ</title>
     <style>
         /* 全体のリセット */
@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            padding-top: 70px; /* 固定ヘッダーの高さ分スペースを確保 */
         }
 
         /* ヘッダー */
@@ -21,6 +22,11 @@
             background-color: #00AAFF;
             border-bottom: 1px solid #ccc;
             padding: 10px 20px;
+            position: fixed; /* ヘッダーを固定 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* 他の要素の上に表示 */
         }
 
         .logo img {
@@ -123,21 +129,20 @@
             padding: 20px 0;
             font-size: 14px;
         }
-
     </style>
 </head>
 <body>
     <!-- ヘッダー -->
     <header>
         <a href="index.html" class="logo">
-            <img src="https://symphony100.github.io/hotelizumi/png/Hotel%20Izum.png" alt="Hotel">
+            <img src="https://symphony100.github.io/hotelizumi/png/Hotel%20Izumi.png" alt="Hotel Izumi">
         </a>
         <div class="divider"></div>
         <nav>
             <a href="#reservations">予約・料金</a>
-            <a href="#parking">駐車場</a>
+            <a href="#map">マップ</a>
             <a href="#sightseeing">観光名所</a>
-            <a href="#access">アクセス</a>
+            <a href="#parking">駐車場</a>
             <a href="#qa">Q＆A</a>
         </nav>
     </header>
@@ -147,7 +152,6 @@
         <div class="carousel-track">
             <img src="https://x.gd/fYZT3" alt="画像1" class="active">
             <img src="https://x.gd/ZiHFc" alt="画像2">
-            <img src="https://x.gd/ZiHFc" alt="画像2">
             <img src="https://travel.rakuten.co.jp/mytrip/sites/mytrip/files/styles/main_image/public/migration_article_images/ranking/spot-enoshima-key.jpg?itok=aVinrCgy" alt="画像3">
         </div>
         <button class="carousel-button prev">&lt;</button>
@@ -156,7 +160,7 @@
 
     <!-- フッター -->
     <footer>
-        <p>&copy; 2024 ホテルいずみ All rights reserved.</p>
+        <p>&copy; 2025 ホテルいずみ All rights reserved.</p>
     </footer>
 
     <script>
