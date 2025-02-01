@@ -14,9 +14,11 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            opacity: 0;
+            transition: opacity 1.5s ease-in;
             padding-top: 70px; /* 固定ヘッダーの高さ分スペースを確保 */
         }
-
+      
         /* ヘッダー */
         header {
             display: flex;
@@ -166,7 +168,12 @@
         <p style="font-size: 16px; color: #333; margin-bottom: 10px;">期間限定プランをご用意しました！特別価格でご宿泊いただけます。</p>
         <a href="https://symphony100.github.io/hotelizumi/news" style="display: inline-block; text-decoration: none; background-color: #00AAFF; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">詳しくはこちら</a>
     </section>
-
+<script>
+// ページ読み込み時にフェードイン
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.style.opacity = "1";
+});
+</script>
 
     <!-- フッター -->
     <footer>
