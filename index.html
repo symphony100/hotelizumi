@@ -69,25 +69,29 @@
         nav a:focus::after {
             width: 100%;
         }
-/* モバイル版用の調整 */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap; /* アイテムを折り返す */
-        justify-content: center; /* 中央に配置 */
-    }
 
-    nav a {
-        margin-right: 0;
-        padding: 10px;
-        font-size: 14px;
-    }
+        /* モバイル版用の調整 */
+        @media (max-width: 768px) {
+            nav {
+                display: flex;
+                flex-wrap: wrap; /* アイテムを折り返す */
+                justify-content: center; /* 中央に配置 */
+                width: 100%; /* 幅を100%に */
+                overflow: hidden; /* スクロールバーを表示させない */
+            }
 
-    /* ヘッダーの高さを調整 */
-    header {
-        padding: 10px 15px;
-    }
-}
+            nav a {
+                margin: 5px 0; /* 上下の余白を調整 */
+                padding: 10px;
+                font-size: 14px;
+                text-align: center; /* 中央揃え */
+            }
+
+            /* ヘッダーの高さ調整 */
+            header {
+                padding: 10px 15px;
+            }
+        }
 
         /* カルーセルのスタイル */
         .carousel-container {
@@ -187,12 +191,13 @@
         <p style="font-size: 16px; color: #333; margin-bottom: 10px;">期間限定プランをご用意しました！特別価格でご宿泊いただけます。</p>
         <a href="https://symphony100.github.io/hotelizumi/news" style="display: inline-block; text-decoration: none; background-color: #00AAFF; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">詳しくはこちら</a>
     </section>
-<script>
-// ページ読み込み時にフェードイン
-document.addEventListener("DOMContentLoaded", function() {
-    document.body.style.opacity = "1";
-});
-</script>
+
+    <script>
+        // ページ読み込み時にフェードイン
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.style.opacity = "1";
+        });
+    </script>
 
     <!-- フッター -->
     <footer>
