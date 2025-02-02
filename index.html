@@ -69,6 +69,25 @@
         nav a:focus::after {
             width: 100%;
         }
+/* モバイル版用の調整 */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* アイテムを折り返す */
+        justify-content: center; /* 中央に配置 */
+    }
+
+    nav a {
+        margin-right: 0;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* ヘッダーの高さを調整 */
+    header {
+        padding: 10px 15px;
+    }
+}
 
         /* カルーセルのスタイル */
         .carousel-container {
