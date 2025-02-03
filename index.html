@@ -149,6 +149,28 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
+      /* キャッチフレーズのスタイル */
+.catchphrase {
+    text-align: center;
+    margin-top: 200px; /* 画面上部から少し下に配置 */
+}
+
+.catchphrase p {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; /* 明朝体 */
+    font-size: 36px;
+    font-weight: bold;
+    color: black; /* 黒色 */
+    opacity: 0;
+    transform: translateY(20px); /* ふわっと上がるように */
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+/* フェードイン時のスタイル */
+.catchphrase p.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
         /* フッターのスタイル */
         footer {
             background-color: #c0c0c0;
@@ -172,6 +194,7 @@
             <a href="#qa">Q＆A</a>
         </nav>
     </header>
+  <br>
     <div></div>
     <!-- カルーセル -->
     <div class="carousel-container">
@@ -185,6 +208,25 @@
         <button class="carousel-button prev">&lt;</button>
         <button class="carousel-button next">&gt;</button>
     </div>
+<div class="catchphrase">
+    <p>ここ鎌倉で、最高なひとときを。</p>
+</div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const catchphrase = document.querySelector(".catchphrase p");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                catchphrase.classList.add("show"); // クラスを追加してフェードイン
+            }
+        });
+    }, { threshold: 0.5 }); // 50%以上見えたら発火
+
+    observer.observe(catchphrase);
+});
+
+  </script>
     <!-- お知らせセクション -->
     <section id="news" style="text-align: center; padding: 30px; background-color: #f8f8f8; margin: 20px auto; width: 60%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
         <h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">お知らせ</h2>
