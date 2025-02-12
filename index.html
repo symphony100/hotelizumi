@@ -4,40 +4,35 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="https://symphony100.github.io/hotelizumi/png/IZ.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- キーワード・ページ紹介 -->
     <meta name="keywords" content="ホテルいずみ,ホテル,鎌倉,格安,駅近,旅館,宿,いずみホテル,izumi,hotel">
     <meta name="description" content="ホテルいずみの公式サイトです。">
-    <!-- og要素 -->
     <meta property="og:title" content="ホテルいずみ">
     <meta property="og:description" content="鎌倉で最高のひとときを。ホテルいずみでくつろぎの時間を。">
     <meta property="og:image" content="https://symphony100.github.io/hotelizumi/png/IZ.png">
     <meta property="og:url" content="https://symphony100.github.io/hotelizumi/">
     <meta property="og:type" content="website">
-
     <title>ホテルいずみ</title>
     <style>
-        /* 全体のリセット */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             opacity: 0;
             transition: opacity 1.5s ease-in;
-            padding-top: 70px; /* 固定ヘッダーの高さ分スペースを確保 */
+            padding-top: 70px;
         }
-      
-        /* ヘッダー */
+
         header {
             display: flex;
             align-items: center;
             background-color: #00AAFF;
             border-bottom: 1px solid #ccc;
             padding: 10px 20px;
-            position: fixed; /* ヘッダーを固定 */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000; /* 他の要素の上に表示 */
+            z-index: 1000;
         }
 
         .logo img {
@@ -77,33 +72,9 @@
             width: 100%;
         }
 
-        /* モバイル版用の調整 */
-        @media (max-width: 768px) {
-            nav {
-                display: flex;
-                flex-wrap: wrap; /* アイテムを折り返す */
-                justify-content: center; /* 中央に配置 */
-                width: 100%; /* 幅を100%に */
-                overflow: hidden; /* スクロールバーを表示させない */
-            }
-
-            nav a {
-                margin: 5px 0; /* 上下の余白を調整 */
-                padding: 10px;
-                font-size: 14px;
-                text-align: center; /* 中央揃え */
-            }
-
-            /* ヘッダーの高さ調整 */
-            header {
-                padding: 10px 15px;
-            }
-        }
-
-        /* カルーセルのスタイル */
         .carousel-container {
             position: relative;
-            width: 60%; /* サイズを調整 */
+            width: 60%;
             margin: 20px auto;
             overflow: hidden;
             border: 2px solid #ccc;
@@ -113,18 +84,18 @@
 
         .carousel-track {
             display: flex;
-            transition: none; /* エフェクトの速度をなしに */
+            transition: none;
             width: 100%;
         }
 
         .carousel-track img {
             width: 100%;
             flex-shrink: 0;
-            display: none; /* 初期は非表示 */
+            display: none;
         }
 
         .carousel-track img.active {
-            display: block; /* activeクラスがついた画像だけ表示 */
+            display: block;
         }
 
         .carousel-button {
@@ -156,39 +127,52 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-      /* キャッチフレーズのスタイル */
-.catchphrase {
-    text-align: center;
-    margin-top: 200px; /* 画面上部から少し下に配置 */
-}
+        .catchphrase {
+            text-align: center;
+            margin-top: 200px;
+        }
 
-.catchphrase p {
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; /* 明朝体 */
-    font-size: 36px;
-    font-weight: bold;
-    color: black; /* 黒色 */
-    opacity: 0;
-    transform: translateY(20px); /* ふわっと上がるように */
-    transition: opacity 2s ease-out, transform 2s ease-out;
-}
+        .catchphrase p {
+            font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 3s ease-out, transform 3s ease-out;
+        }
 
-/* フェードイン時のスタイル */
-.catchphrase p.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .catchphrase p.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* フッターのスタイル */
         footer {
             background-color: #c0c0c0;
             text-align: center;
             padding: 20px 0;
             font-size: 14px;
         }
+      /* スマートフォン版画像カルーセル */
+      @media (max-width: 768px) {
+    .carousel-container {
+        width: 90%;
+    }
+    
+    .carousel-track img {
+        height: auto;
+    }
+
+    .carousel-button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+
     </style>
 </head>
 <body>
-    <!-- ヘッダー -->
     <header>
         <a href="https://symphony100.github.io/hotelizumi/" class="logo">
             <img src="https://symphony100.github.io/hotelizumi/png/Hotel%20Izumi.png" alt="Hotel Izumi">
@@ -201,93 +185,77 @@
             <a href="#qa">Q＆A</a>
         </nav>
     </header>
-  <br>
-    <br>
-    <br>
-  <br>
-    <!-- カルーセル -->
+
     <div class="carousel-container">
         <div class="carousel-track">
             <img src="https://symphony100.github.io/hotelizumi/png/%E9%8E%8C%E5%80%89%E8%83%8C%E6%99%AF5.png" alt="鎌倉背景1" class="active">
             <img src="https://symphony100.github.io/hotelizumi/png/%E9%8E%8C%E5%80%89%E8%83%8C%E6%99%AF2.png" alt="鎌倉背景2">
             <img src="https://symphony100.github.io/hotelizumi/png/%E9%8E%8C%E5%80%89%E8%83%8C%E6%99%AF3.png" alt="鎌倉背景3">
-            <img src="https://symphony100.github.io/hotelizumi/png/%E9%8E%8C%E5%80%89%E8%83%8C%E6%99%AF4.png" alt="鎌倉背景4">
-            <img src="https://symphony100.github.io/hotelizumi/png/%E9%8E%8C%E5%80%89%E8%83%8C%E6%99%AF1.png" alt="鎌倉背景5">
         </div>
         <button class="carousel-button prev">&lt;</button>
         <button class="carousel-button next">&gt;</button>
     </div>
-<div class="catchphrase">
-    <p>ここ鎌倉で、最高なひとときを。</p>
-</div>
-    <br>
-     <br>
-     <br>
-    <br>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const catchphrase = document.querySelector(".catchphrase p");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                catchphrase.classList.add("show"); // クラスを追加してフェードイン
-            }
-        });
-    }, { threshold: 0.5 }); // 50%以上見えたら発火
-
-    observer.observe(catchphrase);
-});
-
-  </script>
-    <!-- お知らせセクション -->
-    <section id="news" style="text-align: center; padding: 30px; background-color: #f8f8f8; margin: 20px auto; width: 60%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-        <h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">お知らせ</h2>
-        <p style="font-size: 16px; color: #333; margin-bottom: 10px;">期間限定プランをご用意しました！特別価格でご宿泊いただけます。</p>
-        <a href="https://symphony100.github.io/hotelizumi/news" style="display: inline-block; text-decoration: none; background-color: #00AAFF; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">詳しくはこちら</a>
-    </section>
+    <div class="catchphrase">
+        <p>ここ鎌倉で、最高なひとときを。</p>
+    </div>
+    <!-- 新着情報セクション -->
+<section id="news" style="text-align: center; padding: 30px; background-color: #f8f8f8; margin: 20px auto; width: 60%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">新着情報</h2>
+    <ul style="list-style-type: none; padding: 0; font-size: 16px; color: #333; text-align: left; max-width: 90%; margin: 0 auto;">
+        <li style="margin-bottom: 10px;">2025年2月10日　<a href="https://symphony100.github.io/hotelizumi/news" style="color: #00AAFF;">見出し１</a></li>
+        <li style="margin-bottom: 10px;">2025年2月15日　<a href="https://symphony100.github.io/hotelizumi/news" style="color: #00AAFF;">見出し２</a></li>
+        <li style="margin-bottom: 10px;">2025年2月30日　<a href="https://symphony100.github.io/hotelizumi/news" style="color: #00AAFF;">見出し３</a></li>
+    </ul>
+    <a href="https://symphony100.github.io/hotelizumi/news" style="display: inline-block; text-decoration: none; background-color: #00AAFF; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">もっと見る</a>
+</section>
 
     <script>
-        // ページ読み込み時にフェードイン
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             document.body.style.opacity = "1";
+
+            const catchphrase = document.querySelector(".catchphrase p");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        catchphrase.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(catchphrase);
+
+            const track = document.querySelector('.carousel-track');
+            const images = document.querySelectorAll('.carousel-track img');
+            const imageCount = images.length;
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                images.forEach(img => img.classList.remove('active'));
+                images[currentIndex].classList.add('active');
+            }
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % imageCount;
+                updateCarousel();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + imageCount) % imageCount;
+                updateCarousel();
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % imageCount;
+                updateCarousel();
+            }, 5000);
         });
     </script>
 
-    <!-- フッター -->
     <footer>
         <p>&copy; 2024 ホテルいずみ All rights reserved.</p>
     </footer>
-
-    <script>
-        const track = document.querySelector('.carousel-track');
-        const images = document.querySelectorAll('.carousel-track img');
-        const imageCount = images.length;
-        const prevButton = document.querySelector('.carousel-button.prev');
-        const nextButton = document.querySelector('.carousel-button.next');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            // すべての画像からactiveクラスを削除
-            images.forEach(img => img.classList.remove('active'));
-            // 次の画像にactiveクラスを追加
-            images[currentIndex].classList.add('active');
-        }
-
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % imageCount;
-            updateCarousel();
-        });
-
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + imageCount) % imageCount;
-            updateCarousel();
-        });
-
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % imageCount;
-            updateCarousel();
-        }, 5000); // 5秒ごとに自動的に次の画像に切り替え
-    </script>
 </body>
 </html>
