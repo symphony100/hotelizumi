@@ -170,6 +170,20 @@
     }
 }
 
+        /* iframe 内のスクロールバーをカスタマイズ */
+#news-frame::-webkit-scrollbar {
+    width: 8px; /* スクロールバーの幅 */
+}
+
+#news-frame::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00AAFF, #0055AA); /* グラデーションカラー */
+    border-radius: 4px; /* 丸みをつける */
+}
+
+#news-frame::-webkit-scrollbar-track {
+    background: #f0f0f0; /* スクロールバーの背景色 */
+    border-radius: 4px;
+}
     </style>
 </head>
 <body>
@@ -199,15 +213,11 @@
     <div class="catchphrase">
         <p>ここ鎌倉で、最高なひとときを。</p>
     </div>
-    <!-- 新着情報セクション -->
+<!-- 新着情報セクション -->
 <section id="news" style="text-align: center; padding: 30px; background-color: #f8f8f8; margin: 20px auto; width: 60%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
     <h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">新着情報</h2>
-    <ul style="list-style-type: none; padding: 0; font-size: 16px; color: #333; text-align: left; max-width: 90%; margin: 0 auto;">
-        <li style="margin-bottom: 10px;">2025年2月10日　<a href="https://symphony100.github.io/hotelizumi/news" style="color: #00AAFF;">見出し１</a></li>
-        <li style="margin-bottom: 10px;">2025年2月15日　<a href="https://symphony100.github.io/hotelizumi/news" style="color: #00AAFF;">見出し２</a></li>
-        <li style="margin-bottom: 10px;">2025年2月30日　<a href="https://symphony100.github.io/hotelizumi/news" style="color: #00AAFF;">見出し３</a></li>
-    </ul>
-    <a href="https://symphony100.github.io/hotelizumi/news" style="display: inline-block; text-decoration: none; background-color: #00AAFF; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">もっと見る</a>
+    <iframe id="news-frame" src="https://symphony100.github.io/hotelizumi/news" style="width: 90%; height: 200px; border: none;"></iframe>
+    <a href="https://symphony100.github.io/hotelizumi/news" style="display: inline-block; text-decoration: none; background-color: #00AAFF; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; margin-top: 15px;">もっと見る</a>
 </section>
 
     <script>
