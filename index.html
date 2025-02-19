@@ -221,15 +221,15 @@
 	<div class="catchphrase">
 		<p>ここ鎌倉で、最高なひとときを。</p>
 	</div>
-	<!-- 新着情報セクション -->
-	<section id="news" style="text-align: center; padding: 30px; background-color: #f8f8f8; margin: 20px auto; width: 60%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-		<h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">新着情報</h2>
+        <!-- 新着情報セクション -->
+        <section id="news">
+        <h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">新着情報</h2>
 
-		<!-- iframe を div でラップして横幅を統一 -->
-		<div style="width: 90%; max-width: 100%; margin: 0 auto; overflow: hidden;">
-			<iframe id="news-frame" src="https://symphony100.github.io/hotelizumi/news/index.html" style="width: 100%; height: 200px; border: none;"></iframe>
-		</div>
-	</section>
+        <!-- iframe を div でラップして横幅を統一 -->
+        <div id="news-wrapper">
+             <iframe id="news-frame" src="https://symphony100.github.io/hotelizumi/news/index.html"></iframe>
+        </div>
+        </section>
 
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
