@@ -215,7 +215,68 @@
         padding: 20px;
     }
 }
+/* Free Wi-Fi セクションのデザイン */
+#wifi-info {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 20px;
+    opacity: 0; /* 初期状態で非表示 */
+    transition: opacity 1s ease-out; /* フェードイン効果 */
+}
 
+.wifi-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9900, #ff3700);
+    color: white;
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 650px;
+    width: 90%;
+    text-align: left;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    line-height: 1.8;
+}
+
+/* Wi-Fiアイコンのデザイン */
+.wifi-icon img {
+    width: 80px;
+    height: auto;
+    margin-right: 25px;
+}
+
+/* Wi-Fiの説明テキスト */
+.wifi-text h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.wifi-text p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.wifi-note {
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .wifi-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    .wifi-icon img {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+}
 	</style>
 
 </head>
@@ -312,6 +373,40 @@
 	});
 
 	</script>
+	        <script>
+// IntersectionObserver を使用して、スクロール時にフェードインさせる
+document.addEventListener("DOMContentLoaded", function() {
+    const wifiSection = document.querySelector("#wifi-info");
+
+    // IntersectionObserverの設定
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 画面に表示されたらフェードイン
+                wifiSection.style.opacity = 1;
+                observer.disconnect(); // 1回だけ実行
+            }
+        });
+    }, {
+        threshold: 0.5 // セクションが50%表示されたら発火
+    });
+
+    observer.observe(wifiSection); // 対象の要素を監視
+});
+</script>
+<!-- Free Wi-Fi の案内セクション -->
+<section id="wifi-info">
+    <div class="wifi-card">
+        <div class="wifi-icon">
+            <img src="img/wifi.png" alt="wifi-icon">
+        </div>
+        <div class="wifi-text">
+            <h2><u>Free Wi-Fi</u></h2>
+            <p>ホテルいずみでは、館内全域で<strong>Free Wi-Fi</strong>をご利用いただけます。</p>
+            <p class="wifi-note">接続方法はフロントでご案内いたします。お気軽にお尋ねください。</p>
+        </div>
+    </div>
+</section>
 	<!-- フッター -->
 	<footer>
 		<p>&copy; 2024 ホテルいずみ All rights reserved.</p>
