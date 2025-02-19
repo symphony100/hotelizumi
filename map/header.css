@@ -1,3 +1,13 @@
+body {
+	margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    padding-top: 70px;
+}
+	
+
 header {
     display: flex;
     align-items: center;
