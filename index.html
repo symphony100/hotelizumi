@@ -282,6 +282,81 @@
 </head>
 
 <body>
+
+	
+	
+	
+	
+	<!-- トップに戻るボタン -->
+<button id="back-to-top">
+    ▲ トップへ戻る
+</button>
+
+<style>
+/* トップへ戻るボタンのデザイン */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #00AAFF, #0077CC);
+    color: white;
+    font-size: 14px;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.3s;
+    transform: translateY(20px);
+}
+
+/* ボタンが表示されるとき */
+#back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ホバー時 */
+#back-to-top:hover {
+    background: linear-gradient(135deg, #0099EE, #0066AA);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    #back-to-top {
+        font-size: 12px;
+        padding: 10px 15px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const backToTop = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 300) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+    });
+
+    backToTop.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+</script>
+
+
+
+
+
+	
 	<!-- ヘッダー -->
 	<header>
 		<a href="/hotelizumi/index.html" class="logo">
