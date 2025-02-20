@@ -316,46 +316,44 @@
         right: 15px;
     }
 }
-
 	</style>
 
 </head>
 
 <body>
 
-	
-	
-	
-	
+
+
 	<!-- トップに戻るボタン -->
-<button id="back-to-top">
-    ▲ 
-</button>
+	<button id="back-to-top">
+		▲
+	</button>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const backToTop = document.getElementById("back-to-top");
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const backToTop = document.getElementById("back-to-top");
 
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > 300) {
-            backToTop.classList.add("show");
-        } else {
-            backToTop.classList.remove("show");
-        }
-    });
+		window.addEventListener("scroll", function() {
+			if (window.scrollY > 300) {
+				backToTop.classList.add("show");
+			} else {
+				backToTop.classList.remove("show");
+			}
+		});
 
-    backToTop.addEventListener("click", function() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-});
-</script>
+		backToTop.addEventListener("click", function() {
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+			});
+		});
+	});
+
+	</script>
 
 
 
-
-
-	
 	<!-- ヘッダー -->
 	<header>
 		<a href="/hotelizumi/index.html" class="logo">
@@ -373,16 +371,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	<!-- 画像カルーセル -->
 	<div class="carousel-container">
 		<div class="carousel-track">
-			<img src="img/kamakura-5.png"
-			alt="kamakura-1" class="active">
-			<img src="img/kamakura-2.png"
-			alt="kamakura-2">
-			<img src="img/kamakura-3.png"
-			alt="kamakura-3">
-			<img src="img/kamakura-4.png"
-			alt="kamakura-4">
-			<img src="img/kamakura-1.png"
-			alt="kamakura-5">
+			<img src="img/kamakura-5.png" alt="kamakura-1" class="active">
+			<img src="img/kamakura-2.png" alt="kamakura-2">
+			<img src="img/kamakura-3.png" alt="kamakura-3">
+			<img src="img/kamakura-4.png" alt="kamakura-4">
+			<img src="img/kamakura-1.png" alt="kamakura-5">
 		</div>
 		<button class="carousel-button prev">&lt;</button>
 		<button class="carousel-button next">&gt;</button>
@@ -391,15 +384,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	<div class="catchphrase">
 		<p>ここ鎌倉で、最高なひとときを。</p>
 	</div>
-        <!-- 新着情報セクション -->
-        <section id="news">
-        <h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">新着情報</h2>
+	<!-- 新着情報セクション -->
+	<section id="news">
+		<h2 style="color: #00AAFF; font-size: 22px; margin-bottom: 15px;">新着情報</h2>
 
-        <!-- iframe を div でラップして横幅を統一 -->
-        <div id="news-wrapper">
-             <iframe id="news-frame" src="news/index.html"></iframe>
-        </div>
-        </section>
+		<!-- iframe を div でラップして横幅を統一 -->
+		<div id="news-wrapper">
+			<iframe id="news-frame" src="news/index.html"></iframe>
+		</div>
+	</section>
 
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
@@ -447,40 +440,41 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	</script>
-	        <script>
-// IntersectionObserver を使用して、スクロール時にフェードインさせる
-document.addEventListener("DOMContentLoaded", function() {
-    const wifiSection = document.querySelector("#wifi-info");
+	<script>
+	// IntersectionObserver を使用して、スクロール時にフェードインさせる
+	document.addEventListener("DOMContentLoaded", function() {
+		const wifiSection = document.querySelector("#wifi-info");
 
-    // IntersectionObserverの設定
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // 画面に表示されたらフェードイン
-                wifiSection.style.opacity = 1;
-                observer.disconnect(); // 1回だけ実行
-            }
-        });
-    }, {
-        threshold: 0.5 // セクションが50%表示されたら発火
-    });
+		// IntersectionObserverの設定
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					// 画面に表示されたらフェードイン
+					wifiSection.style.opacity = 1;
+					observer.disconnect(); // 1回だけ実行
+				}
+			});
+		}, {
+			threshold: 0.5 // セクションが50%表示されたら発火
+		});
 
-    observer.observe(wifiSection); // 対象の要素を監視
-});
-</script>
-<!-- Free Wi-Fi の案内セクション -->
-<section id="wifi-info">
-    <div class="wifi-card">
-        <div class="wifi-icon">
-            <img src="img/wifi.png" alt="wifi-icon">
-        </div>
-        <div class="wifi-text">
-            <h2><u>Free Wi-Fi</u></h2>
-            <p>ホテルいずみでは、館内全域で<strong>Free Wi-Fi</strong>をご利用いただけます。</p>
-            <p class="wifi-note">接続方法はフロントでご案内いたします。お気軽にお尋ねください。</p>
-        </div>
-    </div>
-</section>
+		observer.observe(wifiSection); // 対象の要素を監視
+	});
+
+	</script>
+	<!-- Free Wi-Fi の案内セクション -->
+	<section id="wifi-info">
+		<div class="wifi-card">
+			<div class="wifi-icon">
+				<img src="img/wifi.png" alt="wifi-icon">
+			</div>
+			<div class="wifi-text">
+				<h2><u>Free Wi-Fi</u></h2>
+				<p>ホテルいずみでは、館内全域で<strong>Free Wi-Fi</strong>をご利用いただけます。</p>
+				<p class="wifi-note">接続方法はフロントでご案内いたします。お気軽にお尋ねください。</p>
+			</div>
+		</div>
+	</section>
 	<!-- フッター -->
 	<footer>
 		<p>&copy; 2024 ホテルいずみ All rights reserved.</p>
