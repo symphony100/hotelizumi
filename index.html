@@ -14,66 +14,126 @@
 	<meta property="og:url" content="/hotelizumi/index.html">
 	<meta property="og:type" content="website">
 	<title>ホテルいずみ</title>
-	<style>
-	body {
-	            margin: 0;
-	            padding: 0;
-	            font-family: Arial, sans-serif;
-	            opacity: 0;
-	            transition: opacity 1.5s ease-in;
-	            padding-top: 70px;
-	        }
-	
-	        header {
-	            display: flex;
-	            align-items: center;
-	            background-color: #00AAFF;
-	            border-bottom: 1px solid #ccc;
-	            padding: 10px 20px;
-	            position: fixed;
-	            top: 0;
-	            left: 0;
-	            width: 100%;
-	            z-index: 1000;
-	        }
-	
-	        .logo img {
-	            height: 50px;
-	        }
-	
-	        .divider {
-	            border-left: 2px double #ffffff;
-	            height: 40px;
-	            margin: 0 20px;
-	        }
-	
-	        nav a {
-	            text-decoration: none;
-	            color: #FFFFFF;
-	            font-size: 16px;
-	            font-weight: bold;
-	            margin-right: 15px;
-	            padding-bottom: 5px;
-	            position: relative;
-	        }
-	
-	        nav a::after {
-	            content: '';
-	            display: block;
-	            width: 0;
-	            height: 2px;
-	            background: white;
-	            transition: width 0.3s ease;
-	            position: absolute;
-	            bottom: 0;
-	            left: 0;
-	        }
-	
-	        nav a:hover::after,
-	        nav a:focus::after {
-	            width: 100%;
-	        }
-	
+	<style>body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    padding-top: 70px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00AAFF;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.divider {
+    border-left: 2px double #ffffff;
+    height: 40px;
+    margin: 0 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+.menu-items {
+    display: flex;
+    margin-left: 20px;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.menu-items a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.menu-items a:hover::after,
+.menu-items a:focus::after {
+    width: 100%;
+}
+
+/* ハンバーガーメニューが表示される状態 */
+@media (max-width: 768px) {
+    .menu-items {
+        display: none;
+        flex-direction: column;
+        background-color: #00AAFF;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-items a {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* メニューが開いている状態 */
+.menu.active .menu-items {
+    display: flex;
+}
+
+
 	        .carousel-container {
 	            position: relative;
 	            width: 60%;
@@ -439,8 +499,6 @@
 		}, 5000);
 	});
 
-	</script>
-	<script>
 	// IntersectionObserver を使用して、スクロール時にフェードインさせる
 	document.addEventListener("DOMContentLoaded", function() {
 		const wifiSection = document.querySelector("#wifi-info");
@@ -460,6 +518,10 @@
 
 		observer.observe(wifiSection); // 対象の要素を監視
 	});
+
+    function toggleMenu() {
+        document.querySelector('.menu').classList.toggle('active');
+    }
 
 	</script>
 	<!-- Free Wi-Fi の案内セクション -->
