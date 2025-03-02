@@ -14,7 +14,8 @@
 	<meta property="og:url" content="/hotelizumi/index.html">
 	<meta property="og:type" content="website">
 	<title>ホテルいずみ</title>
-	<style>body {
+	<style>
+	body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -414,19 +415,26 @@ nav {
 
 
 
-	<!-- ヘッダー -->
-	<header>
-		<a href="/hotelizumi/index.html" class="logo">
-			<img src="img/HotelIzumi.png" alt="Hotel Izumi">
-		</a>
-		<div class="divider"></div>
-		<nav>
-			<a href="reservations/index.html">料金</a>
-			<a href="map/index.html">アクセス</a>
-			<a href="sightseeing/index.html">観光</a>
-			<a href="qa/index.html">Q＆A</a>
-		</nav>
-	</header>
+<!-- ヘッダー -->
+<header>
+    <a href="/hotelizumi/index.html" class="logo">
+        <img src="img/HotelIzumi.png" alt="Hotel Izumi">
+    </a>
+    <div class="divider"></div>
+    <nav class="menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="menu-items">
+            <a href="reservations/index.html">料金</a>
+            <a href="map/index.html">アクセス</a>
+            <a href="sightseeing/index.html">観光</a>
+            <a href="qa/index.html">Q＆A</a>
+        </div>
+    </nav>
+</header>
 
 	<!-- 画像カルーセル -->
 	<div class="carousel-container">
