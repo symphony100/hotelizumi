@@ -7,12 +7,12 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "https://symphony100.github.io/symphony/symphony.png",
+      "src": "https://symphony100.github.io/hotelizumi/img/IZ.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://symphony100.github.io/symphony/symphony.png",
+      "src": "https://symphony100.github.io/hotelizumi/img/IZ.png",
       "type": "image/png",
       "sizes": "512x512"
     }
