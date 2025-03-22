@@ -1,6 +1,6 @@
 {
-  "name": "symphony",
-  "short_name": "symphony",
+  "name": "ホテルいずみ公式サイト",
+  "short_name": "ホテルいずみ",
   "start_url": "https://symphony100.github.io/hotelizumi/",
   "display": "standalone",
   "background_color": "#ffffff",
