@@ -1,0 +1,20 @@
+{
+  "name": "ホテルいずみ",
+  "short_name": "IZ",
+  "start_url": "/hotelizumi/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/hotelizumi/IZ.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/hotelizumi/IZ.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
