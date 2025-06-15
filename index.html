@@ -30,6 +30,7 @@
       transition: all 0.3s;
     }
 
+/* ヘッダー */
     .no-scroll {
       overflow: hidden;
       height: 100vh;
@@ -62,12 +63,13 @@
       margin-left: 15px;
     }
 
+/* ハンバーガーメニュー */
     .hamburger {
       width: 30px;
       height: 24px;
       position: relative;
       cursor: pointer;
-      display: block; /* ← PCでも表示 */
+      display: block; /* PCでも表示 */
       z-index: 1101;
     }
 
@@ -157,16 +159,6 @@
       background: #eee;
     }
 
-    .hero h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      color: #555;
-    }
-
     .overlay {
       position: fixed;
       top: 0;
@@ -182,12 +174,77 @@
     .overlay.show {
       display: block;
     }
+
+/*画像カルーセル*/
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 40px auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.carousel-button {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: #333;
+}
+
   </style>
 </head>
 <body>
 
+<!-- オーバーレイ -->
   <div class="overlay" id="overlay"></div>
 
+<!-- ヘッダー -->
   <header class="header">
     <div class="logo-area">
       <a href="/hotelizumi/" class="logo">
@@ -209,9 +266,26 @@
     </div>
   </header>
 
+<!-- カルーセル -->
+<div class="carousel">
+  <div class="carousel-track">
+    <div class="carousel-slide"><img src="img-1.png" alt="画像1"></div>
+    <div class="carousel-slide"><img src="img-2.png" alt="画像2"></div>
+    <div class="carousel-slide"><img src="img-3.png" alt="画像3"></div>
+    <div class="carousel-slide"><img src="img-4.png" alt="画像4"></div>
+    <div class="carousel-slide"><img src="img-5.png" alt="画像5"></div>
+  </div>
+  <div class="carousel-buttons">
+    <button class="carousel-button prev">&#10094;</button>
+    <button class="carousel-button next">&#10095;</button>
+  </div>
+  <div class="carousel-dots"></div>
+</div>
+
 
 
   <script>
+//ハンバーガーメニュー
     const hamburger = document.getElementById("hamburger");
     const nav = document.getElementById("nav");
     const overlay = document.getElementById("overlay");
@@ -226,9 +300,82 @@
     overlay.addEventListener("click", () => {
       hamburger.classList.remove("active");
       nav.classList.remove("show");
-      overlay.classList.remove("show");
+      overlay.classList.remove("show"); //表示・非表示を切り替え
       document.body.classList.remove("no-scroll");
     });
+
+//画像カルーセル
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextButton = document.querySelector('.carousel-button.next');
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const dotsContainer = document.querySelector('.carousel-dots');
+  let currentIndex = 0;
+  let autoSlideInterval;
+
+  const updateCarousel = () => {
+    track.style.transform = `translateX(-${100 * currentIndex}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  };
+
+  const createDots = () => {
+    slides.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+        resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  };
+
+  const moveSlide = (direction) => {
+    currentIndex = (currentIndex + direction + slides.length) % slides.length;
+    updateCarousel();
+  };
+
+  nextButton.addEventListener('click', () => {
+    moveSlide(1);
+    resetAutoSlide();
+  });
+
+  prevButton.addEventListener('click', () => {
+    moveSlide(-1);
+    resetAutoSlide();
+  });
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) moveSlide(1);
+    if (startX - endX < -50) moveSlide(-1);
+    resetAutoSlide();
+  });
+
+  const startAutoSlide = () => {
+    autoSlideInterval = setInterval(() => {
+      moveSlide(1);
+    }, 4000); // 4秒ごとに切り替え
+  };
+
+  const resetAutoSlide = () => {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  };
+
+  createDots();
+  updateCarousel();
+  startAutoSlide();
+	  
   </script>
 </body>
 </html>
