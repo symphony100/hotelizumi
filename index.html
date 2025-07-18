@@ -237,6 +237,44 @@
   background: #333;
 }
 
+
+/* フッター */
+.site-footer {
+  background-color: #f4f4f4;
+  color: #666;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  margin-top: 50px;
+  width: 100vw;          /* 画面の横幅いっぱいに */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;   /* 横スクロール防止＆左右の余白なくす */
+  box-sizing: border-box; 
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sitemap-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* サイトマップ */
+.sitemap-link:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -282,6 +320,13 @@
   <div class="carousel-dots"></div>
 </div>
 
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2024 ホテルいずみ All rights reserved.</p>
+    <a href="/hotelizumi/sitemap/" class="sitemap-link">サイトマップ</a>
+  </div>
+</footer>
 
 
   <script>
