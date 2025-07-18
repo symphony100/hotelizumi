@@ -16,18 +16,11 @@
 	<meta property="og:type" content="website">
   <title>ホテルいずみ</title>
   <style>
+	  
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #FFFFFF;
-      color: #333;
-      padding-top: 70px;
-      transition: all 0.3s;
     }
 
 /* ヘッダー */
@@ -153,6 +146,28 @@
       width: 100%;
     }
 
+    .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: #eee;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 900;
+      display: none;
+      backdrop-filter: blur(3px);
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
 /* フッター */
 .site-footer {
   background-color: #f4f4f4;
@@ -220,20 +235,7 @@
   </header>
 
 <!-- カルーセル -->
-<div class="carousel">
-  <div class="carousel-track">
-    <div class="carousel-slide"><img src="kamakura-1.png" alt="画像1"></div>
-    <div class="carousel-slide"><img src="kamakura-2.png" alt="画像2"></div>
-    <div class="carousel-slide"><img src="kamakura-3.png" alt="画像3"></div>
-    <div class="carousel-slide"><img src="kamakura-4.png" alt="画像4"></div>
-    <div class="carousel-slide"><img src="kamakura-5.png" alt="画像5"></div>
-  </div>
-  <div class="carousel-buttons">
-    <button class="carousel-button prev">&#10094;</button>
-    <button class="carousel-button next">&#10095;</button>
-  </div>
-  <div class="carousel-dots"></div>
-</div>
+
 
 <!-- フッター -->
 <footer class="site-footer">
