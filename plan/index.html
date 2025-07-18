@@ -153,88 +153,41 @@
       width: 100%;
     }
 
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      background: #eee;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 900;
-      display: none;
-      backdrop-filter: blur(3px);
-    }
-
-    .overlay.show {
-      display: block;
-    }
-
-/*画像カルーセル*/
-.carousel {
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-  margin: 40px auto;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-slide {
-  min-width: 100%;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.carousel-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 10px;
-}
-
-.carousel-button {
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.carousel-dots {
+/* フッター */
+.site-footer {
+  background-color: #f4f4f4;
+  color: #666;
+  padding: 30px 20px;
   text-align: center;
-  margin-top: 10px;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  margin-top: 50px;
+  width: 100vw;          /* 画面の横幅いっぱいに */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;   /* 横スクロール防止＆左右の余白なくす */
+  box-sizing: border-box; 
 }
 
-.carousel-dot {
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sitemap-link {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: #bbb;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-.carousel-dot.active {
-  background: #333;
+/* サイトマップ */
+.sitemap-link:hover {
+  text-decoration: underline;
 }
 
   </style>
@@ -269,11 +222,11 @@
 <!-- カルーセル -->
 <div class="carousel">
   <div class="carousel-track">
-    <div class="carousel-slide"><img src="img-1.png" alt="画像1"></div>
-    <div class="carousel-slide"><img src="img-2.png" alt="画像2"></div>
-    <div class="carousel-slide"><img src="img-3.png" alt="画像3"></div>
-    <div class="carousel-slide"><img src="img-4.png" alt="画像4"></div>
-    <div class="carousel-slide"><img src="img-5.png" alt="画像5"></div>
+    <div class="carousel-slide"><img src="kamakura-1.png" alt="画像1"></div>
+    <div class="carousel-slide"><img src="kamakura-2.png" alt="画像2"></div>
+    <div class="carousel-slide"><img src="kamakura-3.png" alt="画像3"></div>
+    <div class="carousel-slide"><img src="kamakura-4.png" alt="画像4"></div>
+    <div class="carousel-slide"><img src="kamakura-5.png" alt="画像5"></div>
   </div>
   <div class="carousel-buttons">
     <button class="carousel-button prev">&#10094;</button>
@@ -282,6 +235,13 @@
   <div class="carousel-dots"></div>
 </div>
 
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2024 ホテルいずみ All rights reserved.</p>
+    <a href="/hotelizumi/sitemap/" class="sitemap-link">サイトマップ</a>
+  </div>
+</footer>
 
 
   <script>
