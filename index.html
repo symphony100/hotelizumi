@@ -177,11 +177,11 @@
 
 /*画像カルーセル*/
 .carousel {
-  position: relative;
+  max-width: 800px;
+  margin: 40px auto 40px auto; /* 上40px、左右中央、下40pxの余白 */
   overflow: hidden;
-  max-width: 100%;
-  margin: 40px auto;
 }
+
 
 .carousel-track {
   display: flex;
@@ -195,6 +195,8 @@
 .carousel-slide img {
   width: 100%;
   height: auto;
+  max-height: 450px;  /* 高さは最大450pxに */
+  object-fit: contain; /* 縦横比を保って収まる */
   display: block;
 }
 
