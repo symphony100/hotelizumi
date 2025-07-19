@@ -23,6 +23,14 @@
       box-sizing: border-box;
     }
 
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 横スクロールさせない */
+  width: 100%;
+}
+
     body {
       font-family: 'Helvetica Neue', sans-serif;
       background: #fff;
@@ -33,6 +41,22 @@
     }
 
 /* ヘッダー */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;          /* ←これ必須 */
+  width: 100vw;     /* 100%じゃなくてビューポート幅 */
+  box-sizing: border-box;
+  background-color: #00AAFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  z-index: 1000;
+}
+
     .no-scroll {
       overflow: hidden;
       height: 100vh;
@@ -54,19 +78,7 @@
       margin-left: 15px;
     }
 
-/* デフォルトはモバイル向けの高さ */
-.header {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #00AAFF;
-  z-index: 1000;
-}
+
 
 /* ハンバーガーメニュー */
 .hamburger {
