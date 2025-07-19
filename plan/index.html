@@ -106,16 +106,24 @@ html, body {
     padding: 0 40px;
   }
 
-  .hamburger {
-    width: 35px;
-    height: 30px;
-  }
+/* ハンバーガーメニュー */
+    .hamburger {
+      width: 30px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+      display: block; /* PCでも表示 */
+      z-index: 1101;
+    }
 
-  .hamburger span {
-    height: 4px;
-  }
-}
-
+    .hamburger span {
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: white;
+      border-radius: 3px;
+      transition: all 0.4s ease;
+    }
 
     .hamburger span:nth-child(1) {
       top: 0;
@@ -375,21 +383,23 @@ html, body {
 
   <script>
 //ハンバーガーメニューの動作
-const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav');
-const overlay = document.getElementById('overlay');
+    const hamburger = document.getElementById("hamburger");
+    const nav = document.getElementById("nav");
+    const overlay = document.getElementById("overlay");
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  nav.classList.toggle('show');
-  overlay.classList.toggle('show');
-});
+    hamburger.addEventListener("click", () => {
+      const isActive = hamburger.classList.toggle("active");
+      nav.classList.toggle("show");
+      overlay.classList.toggle("show");
+      document.body.classList.toggle("no-scroll");
+    });
 
-overlay.addEventListener('click', () => {
-  hamburger.classList.remove('active');
-  nav.classList.remove('show');
-  overlay.classList.remove('show');
-});
+    overlay.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      nav.classList.remove("show");
+      overlay.classList.remove("show"); //表示・非表示を切り替え
+      document.body.classList.remove("no-scroll");
+    });
   </script>
 </body>
 </html>
