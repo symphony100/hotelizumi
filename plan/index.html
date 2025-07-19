@@ -374,7 +374,22 @@ html, body {
 
 
   <script>
-	  
+//ハンバーガーメニューの動作
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+const overlay = document.getElementById('overlay');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('show');
+  overlay.classList.toggle('show');
+});
+
+overlay.addEventListener('click', () => {
+  hamburger.classList.remove('active');
+  nav.classList.remove('show');
+  overlay.classList.remove('show');
+});
   </script>
 </body>
 </html>
