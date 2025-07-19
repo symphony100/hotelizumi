@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="manifest" href="manifest.json">
-	<link rel="icon" type="image/png" href="IZ.png">
+	<link rel="manifest" href="/hotelizumi/manifest.json">
+	<link rel="icon" type="image/png" href="/hotelizumi/IZ.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content="ホテルいずみ,ホテル,鎌倉,格安,駅近,旅館,宿,いずみホテル,izumi,hotel">
 	<meta name="description" content="鎌倉で最高のひとときを。ホテルいずみでくつろぎの時間を。">
 	<!-- 「og」要素 -->
 	<meta property="og:title" content="ホテルいずみ">
 	<meta property="og:description" content="鎌倉で最高のひとときを。ホテルいずみでくつろぎの時間を。">
-	<meta property="og:image" content="IZ.png">
+	<meta property="og:image" content="/hotelizumi/IZ.png">
 	<meta property="og:url" content="/hotelizumi/">
 	<meta property="og:type" content="website">
   <title>ホテルいずみ</title>
@@ -347,96 +347,6 @@
 
 
   <script>
-//ハンバーガーメニュー
-    const hamburger = document.getElementById("hamburger");
-    const nav = document.getElementById("nav");
-    const overlay = document.getElementById("overlay");
-
-    hamburger.addEventListener("click", () => {
-      const isActive = hamburger.classList.toggle("active");
-      nav.classList.toggle("show");
-      overlay.classList.toggle("show");
-      document.body.classList.toggle("no-scroll");
-    });
-
-    overlay.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      nav.classList.remove("show");
-      overlay.classList.remove("show"); //表示・非表示を切り替え
-      document.body.classList.remove("no-scroll");
-    });
-
-//画像カルーセル
-  const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  const nextButton = document.querySelector('.carousel-button.next');
-  const prevButton = document.querySelector('.carousel-button.prev');
-  const dotsContainer = document.querySelector('.carousel-dots');
-  let currentIndex = 0;
-  let autoSlideInterval;
-
-  const updateCarousel = () => {
-    track.style.transform = `translateX(-${100 * currentIndex}%)`;
-    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentIndex);
-    });
-  };
-
-  const createDots = () => {
-    slides.forEach((_, index) => {
-      const dot = document.createElement('span');
-      dot.classList.add('carousel-dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-        resetAutoSlide();
-      });
-      dotsContainer.appendChild(dot);
-    });
-  };
-
-  const moveSlide = (direction) => {
-    currentIndex = (currentIndex + direction + slides.length) % slides.length;
-    updateCarousel();
-  };
-
-  nextButton.addEventListener('click', () => {
-    moveSlide(1);
-    resetAutoSlide();
-  });
-
-  prevButton.addEventListener('click', () => {
-    moveSlide(-1);
-    resetAutoSlide();
-  });
-
-  let startX = 0;
-  track.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  });
-
-  track.addEventListener('touchend', e => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) moveSlide(1);
-    if (startX - endX < -50) moveSlide(-1);
-    resetAutoSlide();
-  });
-
-  const startAutoSlide = () => {
-    autoSlideInterval = setInterval(() => {
-      moveSlide(1);
-    }, 4000); // 4秒ごとに切り替え
-  };
-
-  const resetAutoSlide = () => {
-    clearInterval(autoSlideInterval);
-    startAutoSlide();
-  };
-
-  createDots();
-  updateCarousel();
-  startAutoSlide();
 	  
   </script>
 </body>
