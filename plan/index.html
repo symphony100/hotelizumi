@@ -260,23 +260,23 @@ html, body {
 
 	  
 	  
-/* フッター */
 .site-footer {
+  width: 100vw;          /* ビューポート幅いっぱいに */
+  position: fixed;       /* 画面下に固定 */
+  bottom: 0;             /* 画面の一番下に */
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
   background-color: #f4f4f4;
-  color: #666;
-  padding: 30px 20px;
+  border-top: 1px solid #ddd;
   text-align: center;
   font-size: 14px;
-  border-top: 1px solid #ddd;
-  margin-top: 50px;
-  width: 100vw;          /* 画面の横幅いっぱいに */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;   /* 横スクロール防止＆左右の余白なくす */
-  box-sizing: border-box; 
+  z-index: 999;          /* ヘッダーより下に */
 }
+body {
+  padding-bottom: 80px;  /* フッター分の余白確保 */
+}
+
 
 .footer-content {
   max-width: 1000px;
@@ -292,7 +292,40 @@ html, body {
   font-size: 14px;
 }
 
-/* サイトマップ */
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  z-index: 999;
+}
+
+body {
+  padding-bottom: 80px; /* フッター高さ分の余白確保 */
+}
+
+
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sitemap-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 .sitemap-link:hover {
   text-decoration: underline;
 }
@@ -358,19 +391,10 @@ html, body {
       </tr>
     </tbody>
   </table>
-  <p class="note">※ 小学生以下のお子様は割引料金が適用されます。<br>子供料金の適用には、必ずお子さまの年齢が確認できる証明書をご用意ください。
+  <p class="note">※ 子供料金（小学生以下）の適用には、必ずお子さまの年齢が確認できる証明書をご用意ください。<br>
 ※ 料金は季節・曜日・宿泊人数により変動する場合があります。<br>
 ※ 添い寝（寝具・アメニティなし）は無料になることもあるため、お問い合わせください。
   </p>
-
-<!-- 注意事項 -->
-<section class="id-check-section">
-  <p class="id-check-note">
-    ご宿泊時には、年齢確認のために<strong>身分証明書のご提示</strong>をお願いしています。  
-    子供料金の適用には、必ずお子さまの年齢が確認できる証明書をご用意ください。
-  </p>
-</section>
-
 	
 <!-- フッター -->
 <footer class="site-footer">
