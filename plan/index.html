@@ -45,8 +45,8 @@ html, body {
 .header {
   position: fixed;
   top: 0;
-  left: 0;          /* ←これ必須 */
-  width: 100vw;     /* 100%じゃなくてビューポート幅 */
+  left: 0;          
+  width: 100vw;     /* ビューポート幅にする。 */
   box-sizing: border-box;
   background-color: #00AAFF;
   display: flex;
@@ -90,9 +90,14 @@ html, body {
 }
 
 .hamburger span {
+  position: absolute;
+  width: 100%;
   height: 3px;
   border-radius: 2px;
+  background-color: white;
+  left: 0;
 }
+
 
 /* PC以上の幅があるとき */
 @media screen and (min-width: 768px) {
