@@ -38,17 +38,23 @@
       height: 100vh;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #00AAFF;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;  /* これを */
+  max-width: 900px;  /* 追加 */
+  margin: 0 auto;    /* 追加 */
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #00AAFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
 
     .logo-area {
       display: flex;
