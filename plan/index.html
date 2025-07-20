@@ -16,135 +16,71 @@
 	<meta property="og:type" content="website">
   <title>ホテルいずみ</title>
   <style>
-	  
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* 横スクロールさせない */
-  width: 100%;
-}
-
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
       background: #fff;
       color: #333;
-      padding: 70px 20px 40px;
-      max-width: 900px;
-      margin: 0 auto;
+      overflow-x: hidden;
     }
 
-/* ヘッダー */
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;          
-  width: 100vw;     /* ビューポート幅にする。 */
-  box-sizing: border-box;
-  background-color: #00AAFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 56px;
-  padding: 0 16px;
-  z-index: 1000;
-}
-
-    .no-scroll {
-      overflow: hidden;
-      height: 100vh;
-    }
-
-
-    .logo-area {
+    body {
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header.header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      background-color: #00AAFF;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      height: 56px;
+      padding: 0 16px;
+      z-index: 1300;
+      box-sizing: border-box;
     }
 
     .logo img {
       height: 45px;
     }
-
-    .divider {
-      border-left: 2px solid #fff;
-      height: 35px;
-      margin-left: 15px;
-    }
-
-
-
-/* ハンバーガーメニュー */
-.hamburger {
-  width: 28px;
-  height: 24px;
-  position: relative;
-  cursor: pointer;
-  z-index: 1101;
+.logo-area {
+  display: flex;
+  align-items: center;
 }
 
-.hamburger span {
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-  background-color: white;
-  left: 0;
+.divider {
+  border-left: 2px solid #fff;
+  height: 35px;
+  margin-left: 15px;
 }
 
 
-/* ハンバーガーメニュー */
     .hamburger {
-      width: 30px;
-      height: 24px;
-      position: relative;
-      cursor: pointer;
-      display: block; /* PCでも表示 */
-      z-index: 1101;
+      width: 30px; height: 24px;
+      position: relative; cursor: pointer;
+      display: block; z-index: 1101;
     }
-
     .hamburger span {
       position: absolute;
-      height: 3px;
-      width: 100%;
-      background: white;
-      border-radius: 3px;
+      height: 3px; width: 100%;
+      background: white; border-radius: 3px;
       transition: all 0.4s ease;
     }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 10px; }
+    .hamburger span:nth-child(3) { top: 20px; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 10px; }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 10px; }
 
-    .hamburger span:nth-child(1) {
-      top: 0;
-    }
-
-    .hamburger span:nth-child(2) {
-      top: 10px;
-    }
-
-    .hamburger span:nth-child(3) {
-      top: 20px;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg);
-      top: 10px;
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 10px;
-    }
-
-    .nav {
+    nav.nav {
       flex-direction: column;
       align-items: start;
       position: fixed;
@@ -159,12 +95,10 @@ html, body {
       z-index: 1100;
       display: flex;
     }
-
-    .nav.show {
+    nav.nav.show {
       right: 0;
     }
-
-    .nav a {
+    nav.nav a {
       color: #fff;
       font-size: 18px;
       margin: 15px 0;
@@ -172,8 +106,7 @@ html, body {
       text-decoration: none;
       position: relative;
     }
-
-    .nav a::after {
+    nav.nav a::after {
       content: '';
       display: block;
       width: 0;
@@ -184,39 +117,37 @@ html, body {
       bottom: -3px;
       left: 0;
     }
-
-    .nav a:hover::after {
+    nav.nav a:hover::after {
       width: 100%;
-    }
-
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      background: #eee;
     }
 
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1000;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.4);
+      z-index: 1200;
       display: none;
       backdrop-filter: blur(3px);
     }
-
     .overlay.show {
       display: block;
     }
 
-/* 料金プラン */
+    main {
+      flex: 1;
+      padding-top: 70px;
+      padding-bottom: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     h1 {
       color: #00AAFF;
       margin-bottom: 30px;
       text-align: center;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -235,106 +166,45 @@ html, body {
     tr:nth-child(even) {
       background-color: #f7f7f7;
     }
+
     p.note {
       font-size: 14px;
       color: #555;
       text-align: center;
     }
 
-/* 注意事項 */
-.id-check-note {
-  font-size: 14px;
-  color: #888;
-  max-width: 800px;
-  margin: 0 auto 60px;
-  text-align: center;
-  font-style: italic;
-}
-
-	  
-	  
-.site-footer {
-  width: 100vw;          /* ビューポート幅いっぱいに */
-  position: fixed;       /* 画面下に固定 */
-  bottom: 0;             /* 画面の一番下に */
-  left: 0;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #f4f4f4;
-  border-top: 1px solid #ddd;
-  text-align: center;
-  font-size: 14px;
-  z-index: 999;          /* ヘッダーより下に */
-}
-body {
-  padding-bottom: 80px;  /* フッター分の余白確保 */
-}
-
-
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.sitemap-link {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007BFF;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  background-color: #f4f4f4;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  z-index: 999;
-}
-
-body {
-  padding-bottom: 80px; /* フッター高さ分の余白確保 */
-}
-
-
-
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.sitemap-link {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007BFF;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.sitemap-link:hover {
-  text-decoration: underline;
-}
-
+    footer.site-footer {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      width: 100%;
+    }
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .sitemap-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .sitemap-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-<!-- オーバーレイ -->
   <div class="overlay" id="overlay"></div>
 
-<!-- ヘッダー -->
   <header class="header">
     <div class="logo-area">
       <a href="/hotelizumi/" class="logo">
-        <img src="/hotelizumi/logo.png" alt="Hotel Logo">
+        <img src="https://symphony100.github.io/hotelizumi/logo.png" alt="Hotel Logo" />
       </a>
       <div class="divider"></div>
     </div>
@@ -352,71 +222,52 @@ body {
     </div>
   </header>
 
-<!-- プラン -->
-<h1>料金プラン</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>部屋タイプ</th>
-        <th>1名あたりの料金</th>
-        <th>備考</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>シングルルーム</td>
-        <td>7,150円〜</td>
-        <td>1名様利用</td>
-      </tr>
-      <tr>
-        <td>ダブルルーム</td>
-        <td>7,150円〜</td>
-        <td>2名様利用</td>
-      </tr>
-      <tr>
-        <td>ツインルーム</td>
-        <td>7,150円〜</td>
-        <td>2名様利用（ベッド2台）</td>
-      </tr>
-      <tr>
-        <td>和室（4名まで）</td>
-        <td>7,150円〜</td>
-        <td>4名様まで対応</td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="note">※ 子供料金（小学生以下）の適用には、必ずお子さまの年齢が確認できる証明書をご用意ください。<br>
-※ 料金は季節・曜日・宿泊人数により変動する場合があります。<br>
-※ 添い寝（寝具・アメニティなし）は無料になることもあるため、お問い合わせください。
-  </p>
-	
-<!-- フッター -->
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>© 2024 ホテルいずみ All rights reserved.</p>
-    <a href="/hotelizumi/sitemap/" class="sitemap-link">サイトマップ</a>
-  </div>
-</footer>
+  <main>
+    <h1>料金プラン</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>部屋タイプ</th>
+          <th>1名あたりの料金</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>シングルルーム</td><td>7,150円〜</td><td>1名様利用</td></tr>
+        <tr><td>ダブルルーム</td><td>7,150円〜</td><td>2名様利用</td></tr>
+        <tr><td>ツインルーム</td><td>7,150円〜</td><td>2名様利用（ベッド2台）</td></tr>
+        <tr><td>和室（4名まで）</td><td>7,150円〜</td><td>4名様まで対応</td></tr>
+      </tbody>
+    </table>
+    <p class="note">
+      ※ 子供料金（小学生以下）の適用には、必ずお子さまの年齢が確認できる証明書をご用意ください。<br>
+      ※ 料金は季節・曜日・宿泊人数により変動する場合があります。<br>
+      ※ 添い寝（寝具・アメニティなし）は無料になることもあるため、お問い合わせください。
+    </p>
+  </main>
 
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2024 ホテルいずみ All rights reserved.</p>
+      <a href="/hotelizumi/sitemap/" class="sitemap-link">サイトマップ</a>
+    </div>
+  </footer>
 
   <script>
-//ハンバーガーメニューの動作
     const hamburger = document.getElementById("hamburger");
     const nav = document.getElementById("nav");
     const overlay = document.getElementById("overlay");
 
     hamburger.addEventListener("click", () => {
-      const isActive = hamburger.classList.toggle("active");
+      hamburger.classList.toggle("active");
       nav.classList.toggle("show");
       overlay.classList.toggle("show");
-      document.body.classList.toggle("no-scroll");
     });
 
     overlay.addEventListener("click", () => {
       hamburger.classList.remove("active");
       nav.classList.remove("show");
-      overlay.classList.remove("show"); //表示・非表示を切り替え
-      document.body.classList.remove("no-scroll");
+      overlay.classList.remove("show");
     });
   </script>
 </body>
