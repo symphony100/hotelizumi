@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="/hotelizumi/manifest.json">
+  <link rel="icon" type="image/png" href="/hotelizumi/IZ.png">
+  <meta name="keywords" content="ホテルいずみ,ホテル,鎌倉,格安,駅近,旅館,宿,いずみホテル,izumi,hotel">
+	<meta name="description" content="鎌倉で最高のひとときを。ホテルいずみでくつろぎの時間を。">
+  <meta property="og:title" content="ホテルいずみ">
+  <meta property="og:description" content="鎌倉で最高のひとときを。ホテルいずみでくつろぎの時間を。">
+  <meta property="og:image" content="/hotelizumi/IZ.png">
+  <meta property="og:url" content="/hotelizumi/access/">
+  <meta property="og:type" content="website">
+  <title>ホテルいずみ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header.header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      background-color: #00AAFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+      padding: 0 16px;
+      z-index: 1300;
+    }
+    .logo img { height: 45px; }
+    .logo-area { display: flex; align-items: center; }
+    .divider {
+      border-left: 2px solid #fff;
+      height: 35px;
+      margin-left: 15px;
+    }
+    .hamburger {
+      width: 30px; height: 24px;
+      position: relative; cursor: pointer;
+      display: block; z-index: 1101;
+    }
+    .hamburger span {
+      position: absolute; height: 3px; width: 100%;
+      background: white; border-radius: 3px;
+      transition: all 0.4s ease;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 10px; }
+    .hamburger span:nth-child(3) { top: 20px; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 10px; }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 10px; }
+    nav.nav {
+      flex-direction: column;
+      align-items: start;
+      position: fixed; top: 0; right: -300px;
+      width: 250px; height: 100vh;
+      background-color: #adadad;
+      padding: 80px 20px;
+      transition: right 0.4s ease;
+      box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+      z-index: 1100; display: flex;
+    }
+    nav.nav.show { right: 0; }
+    nav.nav a {
+      color: #fff; font-size: 18px; margin: 15px 0;
+      font-weight: bold; text-decoration: none; position: relative;
+    }
+    nav.nav a::after {
+      content: ''; display: block; width: 0; height: 2px;
+      background: #fff; transition: width 0.3s;
+      position: absolute; bottom: -3px; left: 0;
+    }
+    nav.nav a:hover::after { width: 100%; }
+    .overlay {
+      position: fixed; top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.4);
+      z-index: 1200; display: none;
+      backdrop-filter: blur(3px);
+    }
+    .overlay.show { display: block; }
+    main {
+      flex: 1;
+      padding-top: 80px;
+      padding-bottom: 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #00AAFF;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .map-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .map-container img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #00AAFF;
+      border-radius: 8px;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00AAFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-link:hover {
+      background: #0088cc;
+    }
+    .access-info {
+      margin-top: 30px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .access-info strong {
+      color: #00AAFF;
+    }
+    .contact-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .contact-box p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay"></div>
+
+  <header class="header">
+    <div class="logo-area">
+      <a href="/hotelizumi/" class="logo">
+        <img src="https://symphony100.github.io/hotelizumi/logo.png" alt="Hotel Logo" />
+      </a>
+      <div class="divider"></div>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="/hotelizumi/plan/">料金</a>
+      <a href="/hotelizumi/access/">アクセス</a>
+      <a href="/hotelizumi/spot/">観光</a>
+      <a href="/hotelizumi/q&a/">Q&A</a>
+      <a href="/hotelizumi/en/">English</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <main>
+    <h1>アクセス</h1>
+
+    <!-- オリジナルマップ画像 -->
+    <div class="map-container">
+      <img src="/hotelizumi/map/original-map.png" alt="ホテルいずみオリジナル地図" />
+      <a href="/hotelizumi/map/original-map.png" download="hotelizumi-map.png" class="download-link">
+        地図をダウンロード
+      </a>
+    </div>
+
+    <div class="access-info">
+      <p><strong>住所：</strong> 神奈川県鎌倉市〇〇町1-2-3</p>
+      <p><strong>最寄駅：</strong> JR鎌倉駅 東口より徒歩5分</p>
+      <p><strong>車：</strong> 横浜横須賀道路「朝比奈IC」から約15分（駐車場あり）</p>
+      <p><strong>周辺：</strong> 鶴岡八幡宮まで徒歩10分、長谷寺までバス15分</p>
+    </div>
+
+    <div class="contact-box">
+      <p><strong>ホテルいずみ</strong></p>
+      <p>📞 0467-xx-xxxx</p>
+      <p>✉ contact@hotelizumi.jp</p>
+    </div>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const nav = document.getElementById("nav");
+    const overlay = document.getElementById("overlay");
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      nav.classList.toggle("show");
+      overlay.classList.toggle("show");
+    });
+
+    overlay.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      nav.classList.remove("show");
+      overlay.classList.remove("show");
+    });
+  </script>
+</body>
+</html>
