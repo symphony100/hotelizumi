@@ -14,6 +14,7 @@
   <meta property="og:type" content="website">
   <title>ホテルいずみ</title>
   <style>
+	  
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       height: 100%;
@@ -84,14 +85,28 @@
       position: absolute; bottom: -3px; left: 0;
     }
     nav.nav a:hover::after { width: 100%; }
+	      .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: #eee;
+    }
+
     .overlay {
-      position: fixed; top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.4);
-      z-index: 1200; display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 900;
+      display: none;
       backdrop-filter: blur(3px);
     }
-    .overlay.show { display: block; }
+
+    .overlay.show {
+      display: block;
+    }
+	  
     main {
       flex: 1;
       padding-top: 80px;
@@ -187,13 +202,13 @@
     <div class="contact-box">
       <p><strong>ホテルいずみ</strong></p>
       <p>
-        <a href="tel:0467-xx-xxxx">
-          <img src="/hotelizumi/images/phone.png" alt="電話番号">
+        <a href="tel:0467-25-3300">
+          <img src="phone.png" alt="電話番号">
         </a>
       </p>
       <p>
         <a href="mailto:contact@hotelizumi.jp">
-          <img src="/hotelizumi/images/email.png" alt="メールアドレス">
+          <img src="mail.png" alt="メールアドレス">
         </a>
       </p>
     </div>
