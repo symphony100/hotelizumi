@@ -170,47 +170,41 @@
       <span></span><span></span><span></span>
     </div>
   </header>
-
+	
   <main>
     <h1>アクセス</h1>
 
-    <!-- オリジナルマップ画像 -->
     <div class="map-container">
-      <img src="/hotelizumi/map/original-map.png" alt="ホテルいずみオリジナル地図" />
-      <a href="/hotelizumi/map/original-map.png" download="hotelizumi-map.png" class="download-link">
-        地図をダウンロード
-      </a>
+      <img src="/hotelizumi/map/original-map.png" alt="ホテルいずみオリジナル地図">
+      <a href="/hotelizumi/map/original-map.png" download="hotelizumi-map.png" class="download-link">地図をダウンロード</a>
     </div>
 
     <div class="access-info">
-      <p><strong>住所：</strong> 神奈川県鎌倉市〇〇町1-2-3</p>
-      <p><strong>最寄駅：</strong> JR鎌倉駅 東口より徒歩5分</p>
-      <p><strong>車：</strong> 横浜横須賀道路「朝比奈IC」から約15分（駐車場あり）</p>
-      <p><strong>周辺：</strong> 鶴岡八幡宮まで徒歩10分、長谷寺までバス15分</p>
+      <p><strong>所在地</strong>神奈川県鎌倉市〇〇町1-2-3</p>
+      <p><strong>最寄駅</strong>鎌倉駅 東口より徒歩5分</p>
     </div>
 
     <div class="contact-box">
       <p><strong>ホテルいずみ</strong></p>
-      <p>📞 0467-xx-xxxx</p>
-      <p>✉ contact@hotelizumi.jp</p>
+      <p>
+        <a href="tel:0467-xx-xxxx">
+          <img src="/hotelizumi/images/phone.png" alt="電話番号">
+        </a>
+      </p>
+      <p>
+        <a href="mailto:contact@hotelizumi.jp">
+          <img src="/hotelizumi/images/email.png" alt="メールアドレス">
+        </a>
+      </p>
     </div>
   </main>
 
   <script>
     const hamburger = document.getElementById("hamburger");
     const nav = document.getElementById("nav");
-    const overlay = document.getElementById("overlay");
-
-    hamburger.addEventListener("click", () => {
+    hamburger.addEventListener("click",()=>{
       hamburger.classList.toggle("active");
       nav.classList.toggle("show");
-      overlay.classList.toggle("show");
-    });
-
-    overlay.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      nav.classList.remove("show");
-      overlay.classList.remove("show");
     });
   </script>
 </body>
